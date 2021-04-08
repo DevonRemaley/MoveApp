@@ -8,9 +8,7 @@ namespace MoveApp.Models
 {
     public class LocationListItem
     {
-        public int LocationId { get; set; }
+        public int Id { get; set; }
         public string City { get; set; }
-        public string State { get; set; }
-        public string Park { get; set; }
     }
 }

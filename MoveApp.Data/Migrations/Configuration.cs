@@ -9,7 +9,7 @@ namespace MoveApp.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MoveApp.Data.ApplicationDbContext context)

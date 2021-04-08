@@ -7,13 +7,13 @@ namespace MoveApp.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class updateDatabase : IMigrationMetadata
+    public sealed partial class UpdatedViews : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedViews));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104011459268_updateDatabase"; }
+            get { return "202104072052504_UpdatedViews"; }
         }
         
         string IMigrationMetadata.Source

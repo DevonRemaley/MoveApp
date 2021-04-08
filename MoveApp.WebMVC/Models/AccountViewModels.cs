@@ -65,7 +65,12 @@ namespace MoveApp.WebMVC.Models
     public class RegisterViewModel
     {
         [Required]
-        public string Name { get; set; }
+        [DataType(DataType.Text)]
+        public string FirstName { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
+        public string LastName { get; set; }
+
 
         [Required]
         [EmailAddress]

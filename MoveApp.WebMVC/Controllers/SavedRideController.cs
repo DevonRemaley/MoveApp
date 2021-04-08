@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace MoveApp.WebMVC.Controllers
 {
+    [Authorize]
     public class SavedRideController : Controller
     {
         // GET: SavedRide
@@ -19,7 +20,7 @@ namespace MoveApp.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.Title = "New SavedRide";
+            ViewBag.Title = "New Saved Ride";
             return View();
         }
 
@@ -51,8 +52,9 @@ namespace MoveApp.WebMVC.Controllers
             var savedRide = CreateSavedRideService().GetSavedRideDetailsById(id);
             return View(new SavedRideEdit
             {
-                SavedRideId = savedRide.SavedRideId,
+                Id = savedRide.Id,
                 Name = savedRide.Name,
+                Description = savedRide.Description
             });
         }
 
@@ -62,7 +64,7 @@ namespace MoveApp.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.SavedRideId != id)
+            if (model.Id != id)
             {
                 ModelState.AddModelError("", "Id Error");
                 return View(model);
@@ -76,6 +78,26 @@ namespace MoveApp.WebMVC.Controllers
 
             ModelState.AddModelError("", "Error editing Saved Ride");
             return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateSavedRideService();
+            var model = svc.GetSavedRideDetailsById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteSavedRide(int id)
+        {
+            var service = CreateSavedRideService();
+            service.DeleteSavedRide(id);
+            TempData["SaveResult"] = "Saved Ride deleted";
+            return RedirectToAction("Index");
         }
 
         private SavedRideService CreateSavedRideService()

@@ -1,0 +1,50 @@
+﻿@model MoveApp.Models.RideStatsDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RideStatsDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BikeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BikeType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -24,22 +24,27 @@ namespace MoveApp.Services
                 var savedRide = ctx.SavedRides.Single(s => s.Id == id);
                 return new SavedRideDetail
                 {
-                    SavedRideId = savedRide.Id,
+                    Id = savedRide.Id,
                     Name = savedRide.Name,
-                    Date = savedRide.Date
+                    CreatedUtc = savedRide.CreatedUtc,
+                    
                 };
             }
         }
+
         public bool CreateSavedRide(SavedRideCreate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var newSavedRide = new SavedRide()
+                var entity = new SavedRide()
                 {
-                    Name = model.Name
+                    Id = model.Id,
+                    Name = model.Name,
+                    Description = model.Description,
+                    CreatedUtc = DateTimeOffset.Now
                 };
 
-                ctx.SavedRides.Add(newSavedRide);
+                ctx.SavedRides.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -48,11 +53,11 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.SavedRides.Select(s => new SavedRideListItem
+                var query = ctx.SavedRides.Select(e => new SavedRideListItem
                 {
-                    SavedRideId = s.Id,
-                    Name = s.Name,
-                    Date = s.Date
+                    Id = e.Id,
+                    Name = e.Name,
+                    CreatedUtc = e.CreatedUtc
                 });
 
                 return query.ToArray();
@@ -63,8 +68,21 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var savedRide = ctx.SavedRides.Single(s => s.Id == model.SavedRideId);
+                var savedRide = ctx.SavedRides.Single(s => s.Id == model.Id);
                 savedRide.Name = model.Name;
+                savedRide.Description = model.Description;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteSavedRide(int srId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.SavedRides.Single(e => e.Id == srId);
+
+                ctx.SavedRides.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
