@@ -26,7 +26,10 @@ namespace MoveApp.Services
                 {
                     Id = savedRide.Id,
                     Name = savedRide.Name,
+                    Description = savedRide.Description,
                     CreatedUtc = savedRide.CreatedUtc,
+                    LocationId = savedRide.LocationId,
+                    RideStatsId = savedRide.RideStatsId,
                     
                 };
             }
@@ -41,7 +44,9 @@ namespace MoveApp.Services
                     Id = model.Id,
                     Name = model.Name,
                     Description = model.Description,
-                    CreatedUtc = DateTimeOffset.Now
+                    CreatedUtc = DateTimeOffset.Now,
+                    LocationId = model.LocationId,
+                    RideStatsId = model.RideStatsId
                 };
 
                 ctx.SavedRides.Add(entity);
@@ -57,7 +62,9 @@ namespace MoveApp.Services
                 {
                     Id = e.Id,
                     Name = e.Name,
-                    CreatedUtc = e.CreatedUtc
+                    CreatedUtc = e.CreatedUtc,
+                    LocationId = e.LocationId,
+                    RideStatsId = e.RideStatsId
                 });
 
                 return query.ToArray();
@@ -71,6 +78,8 @@ namespace MoveApp.Services
                 var savedRide = ctx.SavedRides.Single(s => s.Id == model.Id);
                 savedRide.Name = model.Name;
                 savedRide.Description = model.Description;
+                savedRide.LocationId = model.LocationId;
+                savedRide.RideStatsId = model.RideStatsId;
 
                 return ctx.SaveChanges() == 1;
             }

@@ -3,7 +3,7 @@ namespace MoveApp.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ChngedKeys : DbMigration
+    public partial class coreectKeys : DbMigration
     {
         public override void Up()
         {
@@ -11,42 +11,24 @@ namespace MoveApp.Data.Migrations
                 "dbo.Location",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        LocationId = c.Int(nullable: false, identity: true),
                         City = c.String(nullable: false),
                         State = c.String(nullable: false),
                         Park = c.String(),
-                        SavedRide_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SavedRide", t => t.SavedRide_Id)
-                .Index(t => t.SavedRide_Id);
-            
-            CreateTable(
-                "dbo.SavedRide",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Date = c.DateTimeOffset(nullable: false, precision: 7),
-                        LocationId = c.Int(nullable: false),
-                        RideStatsId = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.LocationId);
             
             CreateTable(
                 "dbo.RideStats",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Distance = c.Int(nullable: false),
+                        RideStatsId = c.Int(nullable: false, identity: true),
+                        Distance = c.Double(nullable: false),
                         Time = c.Int(nullable: false),
-                        Calories = c.Int(nullable: false),
                         BikeType = c.Int(nullable: false),
-                        SavedRide_Id = c.Int(),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.SavedRide", t => t.SavedRide_Id)
-                .Index(t => t.SavedRide_Id);
+                .PrimaryKey(t => t.RideStatsId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -73,11 +55,26 @@ namespace MoveApp.Data.Migrations
                 .Index(t => t.ApplicationUser_Id);
             
             CreateTable(
+                "dbo.SavedRide",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        LocationId = c.Int(nullable: false),
+                        RideStatsId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Location", t => t.LocationId, cascadeDelete: true)
+                .ForeignKey("dbo.RideStats", t => t.RideStatsId, cascadeDelete: true)
+                .Index(t => t.LocationId)
+                .Index(t => t.RideStatsId);
+            
+            CreateTable(
                 "dbo.ApplicationUser",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        FullName = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
                         Email = c.String(),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
@@ -126,22 +123,22 @@ namespace MoveApp.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
+            DropForeignKey("dbo.SavedRide", "RideStatsId", "dbo.RideStats");
+            DropForeignKey("dbo.SavedRide", "LocationId", "dbo.Location");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.RideStats", "SavedRide_Id", "dbo.SavedRide");
-            DropForeignKey("dbo.Location", "SavedRide_Id", "dbo.SavedRide");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.SavedRide", new[] { "RideStatsId" });
+            DropIndex("dbo.SavedRide", new[] { "LocationId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.RideStats", new[] { "SavedRide_Id" });
-            DropIndex("dbo.Location", new[] { "SavedRide_Id" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
+            DropTable("dbo.SavedRide");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.RideStats");
-            DropTable("dbo.SavedRide");
             DropTable("dbo.Location");
         }
     }

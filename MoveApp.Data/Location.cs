@@ -11,12 +11,11 @@ namespace MoveApp.Data
     public class Location
     {
         [Required]
-        public int Id { get; set; }
+        public int LocationId { get; set; }
         [Required]
         public string City { get; set; }
         [Required]
         public string State { get; set; }
         public string Park { get; set; }
-        public virtual SavedRide SavedRide { get; set; }
     }
 }

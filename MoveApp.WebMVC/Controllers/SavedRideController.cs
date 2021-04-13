@@ -54,7 +54,10 @@ namespace MoveApp.WebMVC.Controllers
             {
                 Id = savedRide.Id,
                 Name = savedRide.Name,
-                Description = savedRide.Description
+                Description = savedRide.Description,
+                LocationId = savedRide.LocationId,
+                RideStatsId = savedRide.RideStatsId
+                
             });
         }
 

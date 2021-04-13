@@ -7,13 +7,13 @@ namespace MoveApp.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class UpdatedViews : IMigrationMetadata
+    public sealed partial class coreectKeys : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedViews));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(coreectKeys));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104072052504_UpdatedViews"; }
+            get { return "202104131739553_coreectKeys"; }
         }
         
         string IMigrationMetadata.Source

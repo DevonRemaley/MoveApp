@@ -56,33 +56,17 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202104071947019_ChngedKeys.cs" />
-    <Compile Include="Migrations\202104071947019_ChngedKeys.Designer.cs">
-      <DependentUpon>202104071947019_ChngedKeys.cs</DependentUpon>
+    <Compile Include="Migrations\202104131739553_coreectKeys.cs" />
+    <Compile Include="Migrations\202104131739553_coreectKeys.Designer.cs">
+      <DependentUpon>202104131739553_coreectKeys.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104072044259_updatedController.cs" />
-    <Compile Include="Migrations\202104072044259_updatedController.Designer.cs">
-      <DependentUpon>202104072044259_updatedController.cs</DependentUpon>
+    <Compile Include="Migrations\202104131946085_ok.cs" />
+    <Compile Include="Migrations\202104131946085_ok.Designer.cs">
+      <DependentUpon>202104131946085_ok.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104072052504_UpdatedViews.cs" />
-    <Compile Include="Migrations\202104072052504_UpdatedViews.Designer.cs">
-      <DependentUpon>202104072052504_UpdatedViews.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104080243422_distanceToDouble.cs" />
-    <Compile Include="Migrations\202104080243422_distanceToDouble.Designer.cs">
-      <DependentUpon>202104080243422_distanceToDouble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104080320339_changedDate.cs" />
-    <Compile Include="Migrations\202104080320339_changedDate.Designer.cs">
-      <DependentUpon>202104080320339_changedDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104080336367_thisTime.cs" />
-    <Compile Include="Migrations\202104080336367_thisTime.Designer.cs">
-      <DependentUpon>202104080336367_thisTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104080356430_midnight.cs" />
-    <Compile Include="Migrations\202104080356430_midnight.Designer.cs">
-      <DependentUpon>202104080356430_midnight.cs</DependentUpon>
+    <Compile Include="Migrations\202104132024374_almost.cs" />
+    <Compile Include="Migrations\202104132024374_almost.Designer.cs">
+      <DependentUpon>202104132024374_almost.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,26 +78,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104071947019_ChngedKeys.resx">
-      <DependentUpon>202104071947019_ChngedKeys.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104131739553_coreectKeys.resx">
+      <DependentUpon>202104131739553_coreectKeys.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104072044259_updatedController.resx">
-      <DependentUpon>202104072044259_updatedController.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104131946085_ok.resx">
+      <DependentUpon>202104131946085_ok.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104072052504_UpdatedViews.resx">
-      <DependentUpon>202104072052504_UpdatedViews.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104080243422_distanceToDouble.resx">
-      <DependentUpon>202104080243422_distanceToDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104080320339_changedDate.resx">
-      <DependentUpon>202104080320339_changedDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104080336367_thisTime.resx">
-      <DependentUpon>202104080336367_thisTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104080356430_midnight.resx">
-      <DependentUpon>202104080356430_midnight.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104132024374_almost.resx">
+      <DependentUpon>202104132024374_almost.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

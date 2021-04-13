@@ -7,13 +7,13 @@ namespace MoveApp.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class changedDate : IMigrationMetadata
+    public sealed partial class almost : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changedDate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(almost));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104080320339_changedDate"; }
+            get { return "202104132024374_almost"; }
         }
         
         string IMigrationMetadata.Source

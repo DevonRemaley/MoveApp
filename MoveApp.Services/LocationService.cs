@@ -21,10 +21,10 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var location = ctx.Locations.Single(l => l.Id == id);
+                var location = ctx.Locations.Single(l => l.LocationId == id);
                 return new LocationDetail
                 {
-                    Id = location.Id,
+                    LocationId = location.LocationId,
                     City = location.City,
                     State = location.State,
                     Park = location.Park,
@@ -38,7 +38,7 @@ namespace MoveApp.Services
             {
                 var entity = new Location()
                 {
-                    Id = model.Id,
+                    LocationId = model.LocationId,
                     City = model.City,
                     State = model.State,
                     Park = model.Park
@@ -55,8 +55,10 @@ namespace MoveApp.Services
             {
                 var query = ctx.Locations.Select(e => new LocationListItem
                 {
-                    Id = e.Id,
+                    LocationId = e.LocationId,
                     City = e.City,
+                    State = e.State,
+                    Park = e.Park
                 });
 
                 return query.ToArray();
@@ -67,8 +69,8 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var location = ctx.Locations.Single(l => l.Id == model.Id);
-                location.Id = model.Id;
+                var location = ctx.Locations.Single(l => l.LocationId == model.LocationId);
+                location.LocationId = model.LocationId;
                 location.City = model.City;
                 location.State = model.State;
                 location.Park = model.Park;
@@ -81,7 +83,7 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Locations.Single(e => e.Id == lId);
+                var entity = ctx.Locations.Single(e => e.LocationId == lId);
 
                 ctx.Locations.Remove(entity);
 

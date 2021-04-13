@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoveApp.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,10 +11,13 @@ namespace MoveApp.Models
     public class SavedRideEdit
     {
         public int Id { get; set; }
-        [MinLength(1, ErrorMessage = "You must enter a character.")]
-        [MaxLength(30, ErrorMessage = "Whoa, too many characters.")]
+        [Required]
         public string Name { get; set; }
-        [MaxLength(90)]
         public string Description { get; set; }
+        [Required]
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
+        public int LocationId { get; set; }
+        public int RideStatsId { get; set; }
     }
 }

@@ -3,7 +3,7 @@ namespace MoveApp.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class thisTime : DbMigration
+    public partial class almost : DbMigration
     {
         public override void Up()
         {
