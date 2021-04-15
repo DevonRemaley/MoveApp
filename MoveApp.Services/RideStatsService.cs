@@ -21,13 +21,13 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var rideStats = ctx.RideStats.Single(r => r.Id == id);
+                var rideStats = ctx.RideStats.Single(r => r.RideStatsId == id);
                 return new RideStatsDetail
                 {
-                    Id = rideStats.Id,
+                    RideStatsId = rideStats.RideStatsId,
                     Distance = rideStats.Distance,
                     Time = rideStats.Time,
-                    BikeType = rideStats.BikeType
+                    BikeType = rideStats.BikeType,
                 };
             }
         }
@@ -37,10 +37,10 @@ namespace MoveApp.Services
             {
                 var entity = new RideStats()
                 {
-                    Id = model.Id,
+                    RideStatsId = model.RideStatsId,
                     Distance = model.Distance,
                     Time = model.Time,
-                    BikeType = model.BikeType
+                    BikeType = model.BikeType,
                 };
 
                 ctx.RideStats.Add(entity);
@@ -54,10 +54,10 @@ namespace MoveApp.Services
             {
                 var query = ctx.RideStats.Select(e => new RideStatsListItem
                 {
-                    Id = e.Id,
+                    RideStatsId = e.RideStatsId,
                     Distance = e.Distance,
                     Time = e.Time,
-                    BikeType = e.BikeType
+                    BikeType = e.BikeType,
                 });
                 return query.ToArray();
             }
@@ -67,8 +67,8 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var rideStats = ctx.RideStats.Single(r => r.Id == model.Id);
-                rideStats.Id = model.Id;
+                var rideStats = ctx.RideStats.Single(r => r.RideStatsId == model.RideStatsId);
+                rideStats.RideStatsId = model.RideStatsId;
                 rideStats.Distance = model.Distance;
                 rideStats.Time = model.Time;
                 rideStats.BikeType = model.BikeType;
@@ -81,7 +81,7 @@ namespace MoveApp.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.RideStats.Single(e => e.Id == rsId);
+                var entity = ctx.RideStats.Single(e => e.RideStatsId == rsId);
 
                 ctx.RideStats.Remove(entity);
 

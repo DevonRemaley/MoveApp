@@ -52,7 +52,7 @@ namespace MoveApp.WebMVC.Controllers
             var location = CreateLocationService().GetLocationDetailsById(id);
             return View(new LocationEdit
             {
-                Id = location.Id,
+                LocationId = location.LocationId,
                 City = location.City,
                 State = location.State,
                 Park = location.Park
@@ -65,7 +65,7 @@ namespace MoveApp.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.Id != id)
+            if (model.LocationId != id)
             {
                 ModelState.AddModelError("", "Id Error");
                 return View(model);

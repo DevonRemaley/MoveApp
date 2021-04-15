@@ -10,7 +10,7 @@ namespace MoveApp.Models
 {
     public class RideStatsListItem
     {
-        public int Id { get; set; }
+        public int RideStatsId { get; set; }
         public double Distance { get; set; }
         public int Time { get; set; }
         public int Calories { get { return Time * 8; } }

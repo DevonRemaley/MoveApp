@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Distance)
@@ -41,9 +41,9 @@
         @Html.DisplayFor(modelItem => item.BikeType)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        @Html.ActionLink("Edit", "Edit", new { id = item.RideStatsId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.RideStatsId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.RideStatsId })
     </td>
 </tr>
 }

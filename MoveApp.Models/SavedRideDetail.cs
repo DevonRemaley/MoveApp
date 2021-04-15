@@ -11,11 +11,16 @@ namespace MoveApp.Models
     public class SavedRideDetail
     {
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Description { get; set; }
+        [Required]
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        public virtual Location Location { get; set; }
-        public virtual RideStats Ridestats { get; set; }
+        public int LocationId { get; set; }
+        public LocationListItem Location { get; set; }
+        public int RideStatsId { get; set; }
+        public RideStatsListItem RideStats { get; set; }
+
     }
 }

@@ -18,6 +18,8 @@ namespace MoveApp.Data
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         public int LocationId { get; set; }
+        public virtual Location Location { get; set; }
         public int RideStatsId { get; set; }
+        public virtual RideStats RideStats { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace MoveApp.Data
     public class RideStats
     {
         [Required]
-        public int Id { get; set; }
+        public int RideStatsId { get; set; }
         [Required]
         public double Distance { get; set; }
         [Required]
@@ -21,8 +21,7 @@ namespace MoveApp.Data
         [Required]
         [Display(Name = "Type of Bike")]
         public TypeOfBike BikeType { get; set; }
-        public virtual SavedRide SavedRide { get; set; }
+
+        public virtual List<SavedRide> SavedRides { get; set; } = new List<SavedRide>();
     }
-
-
 }

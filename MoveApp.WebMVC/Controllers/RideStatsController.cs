@@ -55,7 +55,7 @@ namespace MoveApp.WebMVC.Controllers
             var rideStats = CreateRideStatsService().GetRideStatsDetailsById(id);
             return View(new RideStatsEdit
             {
-                Id = rideStats.Id,
+                RideStatsId = rideStats.RideStatsId,
                 Distance = rideStats.Distance,
                 Time = rideStats.Time,
                 BikeType = rideStats.BikeType,
@@ -69,7 +69,7 @@ namespace MoveApp.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.Id != id)
+            if (model.RideStatsId != id)
             {
                 ModelState.AddModelError("", "Id Error");
                 return View(model);
