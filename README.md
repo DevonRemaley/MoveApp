@@ -8,3 +8,5 @@ Trello board: https://trello.com/b/xHTxNOr5/move
 Azure Site: https://moveappwebmvc.azurewebsites.net/
 
 Author: Devon Remaley
+
+![GitHub Logo](/images/logo.png)
