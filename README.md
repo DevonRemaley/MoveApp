@@ -8,3 +8,5 @@ Trello board: https://trello.com/b/xHTxNOr5/move
 Azure Site: https://moveappwebmvc.azurewebsites.net/
 
 Author: Devon Remaley
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
