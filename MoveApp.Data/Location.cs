@@ -17,5 +17,6 @@ namespace MoveApp.Data
         [Required]
         public string State { get; set; }
         public string Park { get; set; }
+        public virtual List<SavedRide> SavedRides { get; set; } = new List<SavedRide>();
     }
 }

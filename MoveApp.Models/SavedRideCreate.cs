@@ -18,6 +18,8 @@ namespace MoveApp.Models
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         public int LocationId { get; set; }
+        public LocationListItem Location { get; set; }
         public int RideStatsId { get; set; }
+        public RideStatsListItem RideStats { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using MoveApp.Data;
 using MoveApp.Models;
 using MoveApp.Services;
 using System;
@@ -15,7 +16,7 @@ namespace MoveApp.WebMVC.Controllers
         // GET: SavedRide
         public ActionResult Index()
         {
-            return View(CreateSavedRideService().GetSavedRideList());
+            return View(CreateSavedRideService().GetSavedRides());
         }
 
         public ActionResult Create()
@@ -49,15 +50,36 @@ namespace MoveApp.WebMVC.Controllers
 
         public ActionResult Edit(int id)
         {
+            List<Location> location = new List<Location>();
+            List<RideStats> rideStats = new List<RideStats>();
+
+            ViewBag.LocationList = new SelectList(location, "LocationId");
+            ViewBag.RidesStatsList = new SelectList(rideStats, "RideStatsId");
+
             var savedRide = CreateSavedRideService().GetSavedRideDetailsById(id);
             return View(new SavedRideEdit
             {
                 Id = savedRide.Id,
                 Name = savedRide.Name,
                 Description = savedRide.Description,
+                CreatedUtc = savedRide.CreatedUtc,
                 LocationId = savedRide.LocationId,
-                RideStatsId = savedRide.RideStatsId
-                
+                Location = new LocationListItem
+                {
+                    LocationId = savedRide.Location.LocationId,
+                    City = savedRide.Location.City,
+                    State = savedRide.Location.State,
+                    Park = savedRide.Location.Park
+                },
+                RideStatsId = savedRide.RideStatsId,
+                RideStats = new RideStatsListItem
+                {
+                    RideStatsId = savedRide.RideStats.RideStatsId,
+                    Distance = savedRide.RideStats.Distance,
+                    Time = savedRide.RideStats.Time,
+                    BikeType = savedRide.RideStats.BikeType
+                }
+
             });
         }
 

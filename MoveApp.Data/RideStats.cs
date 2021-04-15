@@ -21,5 +21,7 @@ namespace MoveApp.Data
         [Required]
         [Display(Name = "Type of Bike")]
         public TypeOfBike BikeType { get; set; }
+
+        public virtual List<SavedRide> SavedRides { get; set; } = new List<SavedRide>();
     }
 }

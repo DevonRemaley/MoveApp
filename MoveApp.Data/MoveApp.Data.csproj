@@ -56,19 +56,6 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202104131739553_coreectKeys.cs" />
-    <Compile Include="Migrations\202104131739553_coreectKeys.Designer.cs">
-      <DependentUpon>202104131739553_coreectKeys.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104131946085_ok.cs" />
-    <Compile Include="Migrations\202104131946085_ok.Designer.cs">
-      <DependentUpon>202104131946085_ok.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104132024374_almost.cs" />
-    <Compile Include="Migrations\202104132024374_almost.Designer.cs">
-      <DependentUpon>202104132024374_almost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RideStats.cs" />
     <Compile Include="SavedRide.cs" />
@@ -76,17 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104131739553_coreectKeys.resx">
-      <DependentUpon>202104131739553_coreectKeys.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104131946085_ok.resx">
-      <DependentUpon>202104131946085_ok.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104132024374_almost.resx">
-      <DependentUpon>202104132024374_almost.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
