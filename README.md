@@ -9,6 +9,7 @@ Azure Site: https://moveappwebmvc.azurewebsites.net/
 
 Author: Devon Remaley
 
-<img src="./screenshot(89).png">
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
