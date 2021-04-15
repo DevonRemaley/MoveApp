@@ -9,4 +9,4 @@ Azure Site: https://moveappwebmvc.azurewebsites.net/
 
 Author: Devon Remaley
 
-![GitHub Logo](/images/logo.png)
+![Home page original design](C:\Users\Devon\Pictures\Screenshots\Screenshot (89).png)
